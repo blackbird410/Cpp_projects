@@ -13,17 +13,20 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
 	AB.insert( AB.end(), nums1.begin(), nums1.end() );
 	AB.insert( AB.end(), nums2.begin(), nums2.end() );
 
-	for (int i=0; i < AB.size(); i++)
+	int j = AB.size();
+
+	if (j % 2 == 0)
 	{
-		LOG(AB[i]);
+		double c = ((double)AB[j/2 - 1] + (double)AB[j/2]) / 2;
+		return c;
 	}
 
-	return std::accumulate(AB.begin(), AB.end(), 0);
+	return AB[j/2];
 }
 
 int main()
 {
-	vector<int> a = {1, 2, 3};
+	vector<int> a = {1, 2};
 	vector<int> b = {4, 5, 6};
 	
 	LOG(findMedianSortedArrays(a, b));
