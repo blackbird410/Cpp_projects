@@ -1,6 +1,7 @@
 #include <numeric>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #define LOG(x) std::cout << x <<endl;
 
@@ -14,6 +15,7 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
 	AB.insert( AB.end(), nums2.begin(), nums2.end() );
 
 	int j = AB.size();
+	sort(AB.begin(), AB.end());
 
 	if (j % 2 == 0)
 	{
